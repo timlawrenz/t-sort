@@ -1,0 +1,5 @@
+= turbo_frame_tag "top5_#{dom_id(@series)}" do
+  %h2.text-2xl.font-bold.tracking-tight.text-gray-900 Top 5 Items
+  .grid.grid-cols-4.gap-x-6.gap-y-10.xl:gap-x-8.inline-block.align-top
+    - @top5.each do |item|
+      %img.inline-block.align-top.aspect-square.rounded-md.bg-gray-200.object-cover.lg-aspect-auto.lg:h-80{ src: picture_path(item.sortable), width: '150px' }

@@ -1,0 +1,11 @@
+= form_for(Relation.new) do |f|
+  = f.hidden_field :item1_id, value: @touple.first.id
+  = f.hidden_field :item2_id, value: @touple.last.id
+  = f.button do
+    = render partial: 'picture', locals: { picture: @touple.first.sortable }
+
+= form_for(Relation.new) do |f|
+  = f.hidden_field :item2_id, value: @touple.first.id
+  = f.hidden_field :item1_id, value: @touple.last.id
+  = f.button do
+    = render partial: 'picture', locals: { picture: @touple.last.sortable }
