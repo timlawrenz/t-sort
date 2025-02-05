@@ -27,7 +27,7 @@ module Items
     end
 
     def least_amount_of_relations
-      a = scope.map { |item| [item.id, item.consolidated_relations_count] }
+      a = scope.map { |item| [item.id, item.relations_count] }
                .sort { |pair1, pair2| pair1.last <=> pair2.last }
       Item.find(a[0..99].sample.first)
     end

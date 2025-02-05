@@ -20,9 +20,6 @@ class Item < ApplicationRecord
 
   scope :without_relations, -> { where.missing(:larger_than_relations, :smaller_than_relations) }
 
-  consolidates :relations_count
-  consolidates :relations_weight
-
   def make_bigger_than(other)
     Items::MakeBiggerJob.perform_later(item1_id: id, item2_id: other.id)
   end
@@ -31,7 +28,7 @@ class Item < ApplicationRecord
     return 1 if larger_than?(other)
     return -1 if smaller_than?(other)
 
-    consolidated_relations_weight <=> other.consolidated_relations_weight
+    relations_weight <=> other.relations_weight
   end
 
   def larger_than?(other)
