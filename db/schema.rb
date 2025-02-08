@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_29_154317) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_05_141756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -35,6 +35,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_29_154317) do
     t.datetime "updated_at", null: false
     t.integer "sortable_id"
     t.string "sortable_type"
+    t.integer "relations_count", default: 0, null: false
+    t.integer "relations_weight", default: 0, null: false
+    t.index ["relations_count"], name: "index_items_on_relations_count"
     t.index ["series_id"], name: "index_items_on_series_id"
     t.index ["sortable_id", "sortable_type"], name: "index_items_on_sortable_id_and_sortable_type"
   end

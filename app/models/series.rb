@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Series < ApplicationRecord
+  include IdentityCache
+
   has_many :items, dependent: :destroy
 
   def find_missing_touple(item1: nil)

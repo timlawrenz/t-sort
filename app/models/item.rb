@@ -18,6 +18,8 @@ class Item < ApplicationRecord
                                     inverse_of: 'item2'
   has_many :larger_items, through: :smaller_than_relations, class_name: 'Item', source: :item1
 
+  before_validation :set_counts, on: :create
+
   scope :without_relations, -> { where.missing(:larger_than_relations, :smaller_than_relations) }
 
   def make_bigger_than(other)
@@ -39,15 +41,19 @@ class Item < ApplicationRecord
     ItemCache.smaller_than?(id, other.id)
   end
 
-  def relations_count
-    larger_than_relations.count + smaller_than_relations.count
-  end
-
-  def relations_weight
-    larger_than_relations.count - smaller_than_relations.count
+  def update_relations_count!
+    update(relations_count: larger_than_relations.count + smaller_than_relations.count,
+           relations_weight: larger_than_relations.count - smaller_than_relations.count)
   end
 
   def to_s
     "id: #{id}, value: #{value}"
+  end
+
+  private
+
+  def set_counts
+    self.relations_count = 0
+    self.relations_weight = 0
   end
 end

@@ -21,15 +21,15 @@ module Items
     end
 
     def any_item_without_relation
-      scope.without_relations
+      scope.where(relations_count: 0)
            .limit(100)
            .sample
     end
 
     def least_amount_of_relations
-      a = scope.map { |item| [item.id, item.relations_count] }
-               .sort { |pair1, pair2| pair1.last <=> pair2.last }
-      Item.find(a[0..99].sample.first)
+      scope.order(relations_count: :asc)
+           .limit(100)
+           .sample
     end
 
     def mid_window_item(item)

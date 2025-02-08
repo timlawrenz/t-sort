@@ -2,7 +2,7 @@
 
 class SeriesController < ApplicationController
   def show
-    @series = Series.find(params[:id])
+    @series = Series.fetch(params[:id])
     fresh_when(@series)
 
     picture_id = params[:picture_id]
@@ -14,7 +14,7 @@ class SeriesController < ApplicationController
   end
 
   def top5
-    @series = Series.find(params[:id])
+    @series = Series.fetch(params[:id])
     @top5 = @series.top5
   end
 end
