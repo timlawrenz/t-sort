@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :item do
-    series { nil }
-    value { 1 }
+    series
+    sortable { picture }
   end
 end

@@ -6,17 +6,17 @@
         .grid.grid-cols-2.gap-x-6.gap-y-10.xl:gap-x-8
           %div
             = form_for(Relation.new) do |f|
-              = f.hidden_field :item1_id, value: @touple.first.id
-              = f.hidden_field :item2_id, value: @touple.last.id
+              = f.hidden_field :item1_id, value: @touple.item1.id
+              = f.hidden_field :item2_id, value: @touple.item2.id
               = f.button do
-                = render partial: 'pictures/picture', locals: { picture: @touple.first.sortable }
+                = render partial: 'pictures/picture', locals: { picture: @touple.item1.sortable }
 
           %div
             = form_for(Relation.new, class: ['max-w-xl']) do |f|
-              = f.hidden_field :item2_id, value: @touple.first.id
-              = f.hidden_field :item1_id, value: @touple.last.id
+              = f.hidden_field :item2_id, value: @touple.item1.id
+              = f.hidden_field :item1_id, value: @touple.item2.id
               = f.button do
-                = render partial: 'pictures/picture', locals: { picture: @touple.last.sortable }
+                = render partial: 'pictures/picture', locals: { picture: @touple.item2.sortable }
       - else
         %h2.text-2xl.font-bold.tracking-tight.text-gray-900 No more items to compare
 
