@@ -28,7 +28,15 @@ gem 'solid_queue'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'tailwindcss-rails'
+gem 'tailwindcss-ruby'
 gem 'turbo-rails'
+
+gem 'iconv'
+gem 'mechanize'
+gem 'mutex_m'
+gem 'nkf'
+gem 'watchman'
+gem 'webrick'
 
 group :development, :test do
   gem 'brakeman'

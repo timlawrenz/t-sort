@@ -33,7 +33,7 @@ module Series
              .group(:id)
              .order(count: :asc)
              .count
-             .to_a[0..1000]
+             .to_a[0..10]
              .sample
              .first
       )

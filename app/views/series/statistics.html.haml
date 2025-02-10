@@ -1,0 +1,5 @@
+= turbo_frame_tag "statistics_#{dom_id(@series)}" do
+  %h2.text-2xl.font-bold.tracking-tight.text-gray-900 Statistics
+  %p= "#{@items_count} #{'item'.pluralize(@items_count)} total"
+  %p= "#{@without_relations_count} #{'item'.pluralize(@without_relations_count)} without relations"
+  %p= "relation_count spread: #{@lowest_relation_count} to #{@highest_relation_count}"

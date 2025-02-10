@@ -1,20 +1,26 @@
 .bg-white
-  .mx-auto.px-4.py-16.sm:px-6.sm:py-24.max-w-7xl.lg:px-8
+  .mx-auto.py-8.max-w-7xl.px-8
     = turbo_frame_tag "form_#{dom_id(@series)}" do
-      %h2.text-2xl.font-bold.tracking-tight.text-gray-900 Which one do you prefer?
-      .grid.grid-cols-2.gap-x-6.gap-y-10.xl:gap-x-8.inline-block.align-top
-        %span
-          = form_for(Relation.new) do |f|
-            = f.hidden_field :item1_id, value: @touple.first.id
-            = f.hidden_field :item2_id, value: @touple.last.id
-            = f.button do
-              = render partial: 'pictures/picture', locals: { picture: @touple.first.sortable }
+      - if @touple.present?
+        %h2.text-2xl.font-bold.tracking-tight.text-gray-900 Which one do you prefer?
+        .grid.grid-cols-2.gap-x-6.gap-y-10.xl:gap-x-8
+          %div
+            = form_for(Relation.new) do |f|
+              = f.hidden_field :item1_id, value: @touple.first.id
+              = f.hidden_field :item2_id, value: @touple.last.id
+              = f.button do
+                = render partial: 'pictures/picture', locals: { picture: @touple.first.sortable }
 
-        %span
-          = form_for(Relation.new, class: ['max-w-xl']) do |f|
-            = f.hidden_field :item2_id, value: @touple.first.id
-            = f.hidden_field :item1_id, value: @touple.last.id
-            = f.button do
-              = render partial: 'pictures/picture', locals: { picture: @touple.last.sortable }
+          %div
+            = form_for(Relation.new, class: ['max-w-xl']) do |f|
+              = f.hidden_field :item2_id, value: @touple.first.id
+              = f.hidden_field :item1_id, value: @touple.last.id
+              = f.button do
+                = render partial: 'pictures/picture', locals: { picture: @touple.last.sortable }
+      - else
+        %h2.text-2xl.font-bold.tracking-tight.text-gray-900 No more items to compare
 
+  .mx-auto.py-8.max-w-7xl.px-8
+    = turbo_frame_tag "statistics_#{dom_id(@series)}", src: statistics_series_path(@series), loading: 'lazy'
+  .mx-auto.py-8.max-w-7xl.px-8
     = turbo_frame_tag "top5_#{dom_id(@series)}", src: top5_series_path(@series), loading: 'lazy'

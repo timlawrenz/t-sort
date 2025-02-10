@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :series do
     member do
       get :top5
+      get :statistics
     end
   end
   resources :pictures
