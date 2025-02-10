@@ -7,7 +7,9 @@ module Items
     returns touple: Array
 
     def call
-      context.item1 ||= item1 || any_item_without_relation || least_amount_of_relations
+      context.item1 ||= item1 ||
+                        any_item_without_relation ||
+                        least_amount_of_relations
       context.touple = [context.item1, mid_window_item(context.item1)]
 
       context.error = 'No two elements found.' if context.touple.size != 2
@@ -16,19 +18,27 @@ module Items
 
     private
 
+    def scope_size
+      @scope_size ||= scope.count
+    end
+
+    def random_window
+      @random_window ||= scope_size / 10
+    end
+
     def default_scope
       @default_scope ||= scope.left_joins(:smaller_than_relations).limit(100)
     end
 
     def any_item_without_relation
       scope.where(relations_count: 0)
-           .limit(100)
+           .limit(random_window)
            .sample
     end
 
     def least_amount_of_relations
       scope.order(relations_count: :asc)
-           .limit(100)
+           .limit(random_window)
            .sample
     end
 
@@ -51,7 +61,7 @@ module Items
            .joins('LEFT OUTER JOIN "items" LR_I ON LR.item2_id = LR_I.id')
            .joins('LEFT OUTER JOIN "items" SR_I ON SR.item2_id = SR_I.id')
            .where('SR_I.id IS NULL OR LR_I.id IS NULL')
-           .limit(100)
+           .limit(random_window)
            .sample
     end
 
@@ -63,7 +73,7 @@ module Items
         .where.not(smaller_than_relations: { item1_id: id })
         .where.not(larger_than_relations: { item2_id: id })
         .group(:id)
-        .limit(100)
+        .limit(random_window)
         .sample
     end
   end
