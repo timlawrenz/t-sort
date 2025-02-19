@@ -15,12 +15,8 @@ module Items
 
     private
 
-    def default_scope
-      @default_scope ||= scope.left_joins(:smaller_than_relations).limit(100)
-    end
-
     def least_amount_of_relations
-      scope.order(relations_count: :asc).first
+      scope.order(relations_count: :asc).limit(5).sample
     end
 
     def mid_window_item(item)
@@ -44,7 +40,8 @@ module Items
         .where.not(smaller_than_relations: { item1_id: id })
         .where.not(larger_than_relations: { item2_id: id })
         .group(:id)
-        .first
+        .limit(5)
+        .sample
     end
   end
 end

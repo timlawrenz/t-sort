@@ -5,9 +5,8 @@ class SeriesController < ApplicationController
     @series = Series.fetch(params[:id])
     fresh_when(@series)
 
-    picture_id = params[:picture_id]
-    item1 = Picture.find(picture_id)&.item if picture_id
-    result = Items::FindMissingTouple.call(item1: item1, scope: @series.items)
+    @sticky = sticky
+    result = Items::FindMissingTouple.call(item1:, scope: @series.items)
     @touple = result.touple if result.success?
   end
 
@@ -26,5 +25,18 @@ class SeriesController < ApplicationController
     @without_relations_count = @series.items.without_relations.count
     @highest_relation_count = @series.items.maximum(:relations_count)
     @lowest_relation_count = @series.items.minimum(:relations_count)
+  end
+
+  private
+
+  def sticky
+    ActiveRecord::Type::Boolean.new.deserialize(params[:sticky])
+  end
+
+  def item1
+    picture_id = params[:picture_id]
+    return Picture.find(picture_id).item if picture_id
+
+    nil
   end
 end
