@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Item < ApplicationRecord
-  include Consolidatable
   include IdentityCache
 
   belongs_to :series, touch: true

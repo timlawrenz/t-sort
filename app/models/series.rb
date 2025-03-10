@@ -12,6 +12,6 @@ class Series < ApplicationRecord
   end
 
   def top5
-    items.includes(:consolidations).shuffle.sort.reverse.first(5)
+    items.shuffle.sort.reverse.first(5)
   end
 end

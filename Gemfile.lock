@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/givelively/consolidatable.git
-  revision: e6cf93bed50899b5a75b8dfb722b50e11890b96b
-  specs:
-    consolidatable (0.0.1)
-      activejob (>= 3.2.0)
-      activerecord (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      railties (>= 3.2.0)
-
-GIT
   remote: https://github.com/givelively/gl_command.git
   revision: 4897fb43f69c83ce95aa3006d48bbef64ce68c59
   specs:
@@ -306,7 +296,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.11)
+    rack (3.1.12)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -350,7 +340,7 @@ GEM
       ffi (~> 1.0)
     rdoc (6.12.0)
       psych (>= 4.0.0)
-    redis-client (0.23.2)
+    redis-client (0.24.0)
       connection_pool
     redlock (2.0.6)
       redis-client (>= 0.14.1, < 1.0.0)
@@ -435,12 +425,12 @@ GEM
       sidekiq (>= 3.0)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.3.9)
-      base64
-      connection_pool (>= 2.3.0)
-      logger
-      rack (>= 2.2.4)
-      redis-client (>= 0.22.2)
+    sidekiq (8.0.1)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -472,13 +462,13 @@ GEM
     tailwindcss-rails (4.2.0)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
-    tailwindcss-ruby (4.0.9)
-    tailwindcss-ruby (4.0.9-aarch64-linux-gnu)
-    tailwindcss-ruby (4.0.9-aarch64-linux-musl)
-    tailwindcss-ruby (4.0.9-arm64-darwin)
-    tailwindcss-ruby (4.0.9-x86_64-darwin)
-    tailwindcss-ruby (4.0.9-x86_64-linux-gnu)
-    tailwindcss-ruby (4.0.9-x86_64-linux-musl)
+    tailwindcss-ruby (4.0.12)
+    tailwindcss-ruby (4.0.12-aarch64-linux-gnu)
+    tailwindcss-ruby (4.0.12-aarch64-linux-musl)
+    tailwindcss-ruby (4.0.12-arm64-darwin)
+    tailwindcss-ruby (4.0.12-x86_64-darwin)
+    tailwindcss-ruby (4.0.12-x86_64-linux-gnu)
+    tailwindcss-ruby (4.0.12-x86_64-linux-musl)
     temple (0.10.3)
     thor (1.3.2)
     tilt (2.6.0)
@@ -539,7 +529,6 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   cityhash
-  consolidatable!
   dalli
   database_cleaner
   database_cleaner-active_record

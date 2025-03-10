@@ -10,7 +10,6 @@ gem 'activejob-uniqueness'
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'cityhash'
-gem 'consolidatable', git: 'https://github.com/givelively/consolidatable.git'
 gem 'dalli'
 gem 'gl_command', git: 'https://github.com/givelively/gl_command.git'
 gem 'haml-rails'
