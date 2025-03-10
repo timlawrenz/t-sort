@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/givelively/consolidatable.git
-  revision: e6cf93bed50899b5a75b8dfb722b50e11890b96b
+  revision: 0193a6675c26481e3c0935f952f58cbb55a9b18f
   specs:
-    consolidatable (0.0.1)
+    consolidatable (0.1.0)
       activejob (>= 3.2.0)
       activerecord (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -306,7 +306,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.11)
+    rack (3.1.12)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
