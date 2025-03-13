@@ -10,7 +10,7 @@ class ImportPhotos < GLCommand::Callable
     context.path = File.realpath(context.path)
 
     if File.file?(path)
-      return unless path.match?(/\.jpe?g$/)
+      return unless path.match?(/\.jpe?g$/) || path.match?(/\.png$/)
 
       picture = Picture.find_or_create_by(path:)
       Item.find_or_create_by(sortable: picture, series: target)
