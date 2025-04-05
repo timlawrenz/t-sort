@@ -29,6 +29,7 @@ gem 'stimulus-rails'
 gem 'tailwindcss-rails'
 gem 'tailwindcss-ruby'
 gem 'turbo-rails'
+gem 'view_component'
 
 gem 'iconv'
 gem 'mechanize'

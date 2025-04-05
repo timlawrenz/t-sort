@@ -1,0 +1,3 @@
+[submodule "app/components/t_catalyst"]
+	path = app/components/t_catalyst
+	url = git@github.com:timlawrenz/t_catalyst.git
