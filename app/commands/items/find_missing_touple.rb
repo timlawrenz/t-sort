@@ -16,7 +16,7 @@ module Items
     private
 
     def least_amount_of_relations
-      scope.order(relations_count: :asc).limit(5).sample
+      scope.order(relations_count: :asc, relations_weight: :desc).limit(5).sample
     end
 
     def mid_window_item(item)
