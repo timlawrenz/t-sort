@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/givelively/gl_command.git
-  revision: 0ba978c8e0623c0eb7cf969d666ec6d81295969a
+  revision: 6669b502970a785ee12144417c68ac8009ea7d34
   specs:
-    gl_command (1.3.0)
+    gl_command (1.4.0)
       activerecord (>= 3.2.0)
       gl_exception_notifier (>= 1.0.2)
 
@@ -344,7 +344,7 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    redis-client (0.24.0)
+    redis-client (0.25.1)
       connection_pool
     redlock (2.0.6)
       redis-client (>= 0.14.1, < 1.0.0)
@@ -430,7 +430,7 @@ GEM
       sidekiq (>= 3.0)
     shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
-    sidekiq (8.0.3)
+    sidekiq (8.0.5)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
       logger (>= 1.6.2)
