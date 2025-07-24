@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/givelively/gl_command.git
-  revision: 6669b502970a785ee12144417c68ac8009ea7d34
+  revision: bee9d3e59bdab0612010b1fe84818af770135d4a
   specs:
     gl_command (1.4.0)
       activerecord (>= 3.2.0)
@@ -218,7 +218,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.12.2)
+    json (2.13.1)
     language_server-protocol (3.17.0.5)
     launchy (3.1.1)
       addressable (~> 2.8)
@@ -430,7 +430,7 @@ GEM
       sidekiq (>= 3.0)
     shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
-    sidekiq (8.0.5)
+    sidekiq (8.0.6)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
       logger (>= 1.6.2)
